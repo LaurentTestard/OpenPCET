@@ -1,0 +1,31 @@
+<div>
+	<div class="modal-body" >			
+			<form class="form-horizontal" role="form">
+			
+				<div class="form-group">
+				  <label class="col-sm-2 control-label">From : </label> 
+				  <div class="col-sm-10">
+							<input ng-model="mail.exp" type="text" class="form-control">								
+				</div>
+				</div>
+				
+				<div class="form-group">
+				  <label class="col-sm-2 control-label">Sujet : </label> 
+				  <div class="col-sm-10">
+				  	<input ng-model="mail.sujet" type="text" class="form-control">								
+				  </div>
+				</div>
+				
+				<div class="form-group">
+				  <label class="col-sm-2 control-label">Message : </label> 
+				  <div class="col-sm-10">
+				  	<input ng-model="mail.message" type="text" class="form-control">								
+				  </div>
+				</div>
+  		    </form>
+  		</div>
+		<div class="modal-footer">
+			<button class="btn btn-primary" ng-click="ok()">{{labelBouton}}</button>
+			<button class="btn btn-danger" ng-click="cancel()">Annuler</button>
+		</div>
+</div>

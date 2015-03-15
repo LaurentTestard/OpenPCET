@@ -1,0 +1,46 @@
+<div ng-show="donneeUtilisateur.role_utilisateur==1  || donneeUtilisateur.role_utilisateur==2 " class="row">
+   <div class="drop-box col-md-6 col-md-offset-3" ng-file-drop="onFileSelect($files)" ng-file-drag-over-class="optional-css-class"
+        ng-show="dropSupported">Faites glisser vos fichiers ICI</div>
+   <div  class="drop-box col-md-6 col-md-offset-3" ng-file-drop-available="dropSupported=true" 
+        ng-show="!dropSupported">L'envoi de fichier n'est pas disponible sur votre navigateur.
+   </div>
+   <div>
+       	<span class="col-md-6 col-md-offset-3 style="padding-left: 16px"><center><i> - OU - </i></center></span>
+   </div>
+	<div class="col-md-5 col-md-offset-4" style="padding-left: 16px">
+  	    <span class="btn btn-primary btn-file">
+    		S&eacute;lectionner des fichiers sur votre ordinateur <input type="file" ng-file-select="onFileSelect($files)">
+		</span>	    
+	</div>
+</div>
+<div>
+	<br><progressbar class="col-md-6 col-md-offset-3 progress-paddingf" animate="true" value="percentUplaod" type="success"><b>{{percentUplaod}}</b></progressbar></br>
+</div>
+</br>
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">
+  	<div class="row">
+	  <div class="col-xs-3">
+	    <input class="form-control input-sm" ng-model="recherche_nom_document" ng-show="documents.length>0" type="text" placeholder="Recherche">
+	  </div>
+	</div>
+  </div>
+  <table class="table" >
+        <tbody>
+          <tr ng-repeat="document in documents | filter:recherche_nom_document | orderBy:'id':reverse=true" ng-show="document.type_document=='action'">
+	            <td>{{document.nom_document}}</td>
+	            <td><i style="font-size:12px">Propri&eacute;taire : <b>{{document.proprietaire}}</b></i></td>
+	            <td ng-show="donneeUtilisateur.role_utilisateur==1 || donneeUtilisateur.login_utilisateur==document.proprietaire"><a style="cursor:pointer" class="glyphicon glyphicon-link addtips" ng-click="associer(document)" data-placement="top" title="Cliquer pour associer ce fichier &agrave; une action" > Associer</a> </td>
+	            <td><a style="cursor:pointer" class="glyphicon glyphicon-download-alt addtips" target="_blank" href="/serveurpcet/index.php/document/{{document.id}}" data-placement="top" title="Cliquer pour t&eacute;l&eacute;charger ce fichier" > Télécharger</a> </td>
+	            <td ng-show="donneeUtilisateur.role_utilisateur=='1' || donneeUtilisateur.login_utilisateur==document.proprietaire"><b style="cursor:pointer" class="glyphicon glyphicon-trash addtips" ng-click="supprimerDocument(document)" data-placement="top" title="Cliquer pour supprimer ce fichier"> Supprimer</b></td>
+	            <td ng-show="donneeUtilisateur.role_utilisateur=='1'"><b style="cursor:pointer" class="glyphicon glyphicon-share-alt addtips" ng-click="changerType(document)" data-placement="top" title="Clique pour mettre ce document comme une actualit&eacute;">Actualit&eacute;</b></td>
+          </tr>
+          
+        </tbody>
+      </table>
+      <div href="#/gestiondedoc" ng-show="del" class="alert alert-success">
+    			<a class="close" data-dismiss="alert">&times;</a>
+    			<span class="glyphicon glyphicon-ok"></span> Le fichier a &eacute;t&eacute; supprim&eacute !
+	  </div>
+</div>

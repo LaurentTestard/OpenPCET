@@ -1,0 +1,27 @@
+<div class="panel panel-info">
+  <div class="panel-heading">
+    <h4 class="panel-title">Connexion</h4>
+  </div>
+  <div class="panel-body">
+  	<form class="form-horizontal" >
+  		<div class="form-group">
+  			<label for="utilisateur" class="col-sm-4 control-label">Utilisateur</label>
+ 				<div class="col-sm-7">
+ 					<input ng-model="login" type="text" class="form-control" id="utilisateur"/>
+ 				</div>
+  		</div>
+  		<div class="form-group">
+  			<label for="mot_de_passe" class="col-sm-4 control-label">Mot de passe</label>
+ 				<div class="col-sm-7">
+ 					<input ng-model="password"  type="password" class="form-control" id="mot_de_passe"/>
+ 				</div>
+  		</div>
+  		<div class="form-group" ng-show="connexion == 'ko'">
+  			<strong class="col-sm-offset-4 text-danger" style="padding-left: 15px">Utilisateur ou mot de passe incorrect</strong>
+  		</div>
+  		<div class="control col-sm-offset-4" style="padding-left: 10px">
+  			<button ng-click="seConnecter(login,password)" type="submit" class="btn btn-primary">Se connecter</button>
+  		</div>
+  	</form>
+  </div>
+</div>

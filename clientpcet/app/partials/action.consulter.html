@@ -1,0 +1,328 @@
+<div class="navbar navbar-default">
+<h5>
+<b>{{ actionDetails.objectifstrategique.nom_engagement_thematique || 'Non renseigné' }} - </b>
+<b>{{ actionDetails.objectifstrategique.nom_objectif_strategique || 'Non renseigné' }}</b>
+<i ng-show="actionDetails.est_adaptation"> (Adaptation)</i>
+<i ng-show="actionDetails.est_attenuation"> (Atténuation)</i><br/>
+<i>{{ actionDetails.code_action || 'Non renseigné' }} : {{ actionDetails.nom_action || 'Non renseigné' }}</i>
+<a style="cursor:pointer" class="glyphicon glyphicon-download-alt addtips" target="_blank" href="/serveurpcet/fichier/{{ actionDetails.code_action}}.pdf" data-placement="top" title="Cliquer pour t&eacute;l&eacute;charger ce fichier" ></a>
+<a style="cursor:pointer" class="glyphicon glyphicon-pencil addtips" ng-click="editableForm.$show()" ng-show="!editableForm.$visible && (donneeUtilisateur.role_utilisateur=='1' || propritaire=='true')" data-placement="top" title="Cliquer pour modifier cette partie"></a>
+</h5>
+</div>
+		
+  <!-- Généralités -->
+		<form  ng-show="editableForm.$visible" form editable-form name="editableForm" class="form-horizontal"  onaftersave="sauvegarderAction()">
+		  <div class="form-group">
+		    <label class="col-sm-2 control-label formEditable">Code de l'action</label>
+		    <div class="col-sm-7 ">
+			    <span editable-text="actionDetails.code_action" e-name="code_action" e-required>{{ actionDetails.code_action || 'Non renseigné' }}</span>
+		    </div>
+		  </div>
+		  <div class="form-group">
+		    <label class="col-sm-2 control-label formEditable">Nom de l'action</label>
+		    <div class="col-sm-7">
+			   <span editable-text="actionDetails.nom_action" e-name="nom_action" e-required>{{ actionDetails.nom_action || 'Non renseigné' }}</span>
+		    </div>
+		  </div>
+		  
+		<div class="form-group">
+			<label class="col-sm-2 control-label formEditable">Nom thématique</label>
+			<div class="btn-group">
+				<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+					{{ actionDetails.objectifstrategique.nom_engagement_thematique || 'Non renseigné' }}
+					<span class="caret"></span>
+				</button>
+				<ul class="dropdown-menu col-sm-7">
+					<li style="cursor:pointer;" ng-click="getobjs(engagement)" ng-repeat="engagement in engagements"><a>{{engagement.nom_engagement_thematique}}</a></li>
+				</ul>
+			</div>
+		</div>
+				  
+		  
+		  
+		  <div class="form-group">
+			<label class="col-sm-2 control-label formEditable">Objectif strat&eacute;gique</label>
+			<div class="btn-group">
+				<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+					{{ actionDetails.objectifstrategique.nom_objectif_strategique || 'Non renseigné' }}
+					<span class="caret"></span>
+				</button>
+				<ul class="dropdown-menu col-sm-7">
+					<li  style="cursor:pointer;" ng-click="setobjInData(objectif)" ng-repeat="objectif in objs"><a>{{objectif.nom_objectif_strategique}}</a></li>
+				</ul>
+			</div>
+		</div>
+		  
+		  <div class="form-group">
+		    <label class="col-sm-2 control-label formEditable">Objectif PCET</label>
+		    <div class="col-sm-7 ">
+		      <div class="checkbox">
+		        <label>
+		           <input type="checkbox" id="cbFormation"  ng-model="actionDetails.est_adaptation" ng-disabled="!editableForm.$visible">Adaptation<br />
+		           <input type="checkbox" id="cbFormation"  ng-model="actionDetails.est_attenuation"  ng-disabled="!editableForm.$visible">Atténuation
+		        </label>
+		      </div>
+		    </div>
+		  </div>
+		  <hr ng-show="donneeUtilisateur.role_utilisateur==1  || propritaire=='true' " class="faded"/>
+		  <div class="form-group"  ng-show="donneeUtilisateur.role_utilisateur==1  || propritaire=='true' " class="buttons" >
+		    <div class="col-sm-offset-2 col-sm-10">
+     			<button ng-show="editableForm.$visible" type="submit" class="btn btn-primary" ng-disabled="editableForm.$waiting" >
+         			Sauvegarder
+       			</button>
+       			<button ng-show="editableForm.$visible" type="button" class="btn btn-default" ng-disabled="editableForm.$waiting" ng-click="editableForm.$cancel()">
+         			Annuler
+       			</button>
+		    </div>
+		  </div>
+		</form>
+		
+ <!-- Mots-clés -->
+  <div id="mots_cles">
+		<div class="input-group">
+			<div class="input-group-btn">
+				<input style="width:200px;" ng-model="nouveauxMotclef" type="text" class="form-control" placeholder="Ajouter un mot clef">
+				<button type="button" ng-click="addMotclef(nouveauxMotclef)" class="btn btn-default">
+					<span class="glyphicon glyphicon-plus"></span>
+				</button>
+				<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+					<span class="caret"></span>
+				</button>
+				<ul style="position:absolute;width:200px" class="dropdown-menu" role="menu">
+					<li ng-click="lierMotClef(motclefnonlier)" ng-repeat="motclefnonlier in motclefnonliers" style="cursor: pointer" class="list-group-item"> {{motclefnonlier.nom_mot_clef}}</li>
+				</ul>
+			 </div>
+	    </div>
+		<div>
+			<label ng-show="motclefliers.length!=0">Mot(s) clef(s) associé(s) : </label>
+				<i ng-click="delierMotClef(motcleflier)" ng-repeat="motcleflier in motclefliers" style="cursor: pointer">
+			    	{{motcleflier.nom_mot_clef}}<span ng-show="$index!=(motclefliers.length-1)">,</span> 
+			    </i>
+		</div><br/>
+	</div>
+		 
+ <div class="panel-group"> 
+  <!-- Présentation de l'action -->
+  <div class="panel panel-info">
+    <div style="cursor:pointer" class="panel-heading">
+      <h4 style="cursor:pointer" class="col-sm-3 panel-title">Présentation de l'action</h4>
+      <b style="cursor:pointer" class="col-sm-2 glyphicon glyphicon-pencil addtips" ng-show="!iscollapsed1 && donneeUtilisateur.role_utilisateur=='1'" ng-click="editableForm2.$show()" ng-show="!editableForm2.$visible" data-placement="top" title="Cliquer pour modifier cette partie"> Modifier</b>
+      <i style="cursor:pointer" class="col-sm-offset-8 glyphicon glyphicon-chevron-down addtips" ng-show="iscollapsed1 && (donneeUtilisateur.role_utilisateur!='1' || propritaire!='true')" ng-click="iscollapsed1=!iscollapsed1" data-toggle="collapse" href="#presentation" data-placement="top" title="Cliquer pour agrandir cette partie"></i>
+      <i style="cursor:pointer" class="col-sm-offset-8 glyphicon glyphicon-chevron-down addtips" ng-show="iscollapsed1 && (donneeUtilisateur.role_utilisateur=='1' || propritaire=='true')" ng-click="iscollapsed1=!iscollapsed1" data-toggle="collapse" href="#presentation" data-placement="top" title="Cliquer pour agrandir cette partie"></i>
+      <i style="cursor:pointer" class="col-sm-offset-8 glyphicon glyphicon-chevron-up addtips" ng-show="!iscollapsed1 && (donneeUtilisateur.role_utilisateur!='1' || propritaire!='true')" ng-click="iscollapsed1=!iscollapsed1" data-toggle="collapse" href="#presentation" data-placement="top" title="Cliquer pour r&eacute;duire cette partie"><br/></i>
+      <i style="cursor:pointer" class="col-sm-offset-6 glyphicon glyphicon-chevron-up addtips" ng-show="!iscollapsed1 && (donneeUtilisateur.role_utilisateur=='1' || propritaire=='true')" ng-click="iscollapsed1=!iscollapsed1" data-toggle="collapse" href="#presentation" data-placement="top" title="Cliquer pour r&eacute;duire cette partie"><br/></i>
+    </div>
+    <div id="presentation" class="panel-collapse collapse in">
+      <div class="panel-body">
+		<form form editable-form name="editableForm2" class="form-horizontal"  onaftersave="sauvegarderAction()">
+			<div class="panel panel-default">
+				<div>
+				  <div class="panel col-sm-3">
+				  		<div class="col-sm-10 form-group">
+					    <label class=" col-sm-offset-2 control-label formEditable">Type(s)</label>
+					    <div class="col-sm-12 ">
+					      <div class="checkbox">
+					        <label>
+					           <input type="checkbox" id="cbCommunication" ng-model="actionDetails.est_communication" ng-disabled="!editableForm2.$visible">Communication / sensibilisation<br />
+					           <input type="checkbox" id="cbFormation" ng-model="actionDetails.est_formation" ng-disabled="!editableForm2.$visible">Formation<br />
+					           <input type="checkbox" id="cbAppuiTechnique" ng-model="actionDetails.est_appui_technique" ng-disabled="!editableForm2.$visible">Appui technique<br />
+					           <input type="checkbox" id="cbAppuiFinancier" ng-model="actionDetails.est_appui_financier" ng-disabled="!editableForm2.$visible">Appui financier<br />
+					        </label>
+					      </div>
+					    </div>
+				  </div>
+				  </div>
+				  <div class="container col-sm-5">
+					  <div class="col-sm-12 form-group">
+					    <label class="col-sm-offset-1 control-label formEditable">Nom thématique concernée</label>
+					    <div>
+							<div class="col-sm-12 btn-group">
+								<span ng-show="!editableForm2.$visible">
+								 {{ actionDetails.thematiqueconcernee.nom_thematique_concernee || 'Non renseigné' }}
+								</span>
+							  <div ng-show="editableForm2.$visible" class="btn-group">
+							    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+							      {{ actionDetails.thematiqueconcernee.nom_thematique_concernee || 'Non renseigné' }}
+							      <span class="caret"></span>
+							    </button>
+							    <ul class="dropdown-menu">
+							      <li ng-click="setThematiqueInData(thematique)" ng-repeat="thematique in thematiques"><a>{{thematique.nom_thematique_concernee}}</a></li>
+							    </ul>
+							  </div>
+							</div>
+					    </div>
+					  </div>
+					 </div>
+				  <div class="panel col-sm-4">
+				  <div class="col-sm-12 form-group">
+				    <label class="control-label formEditable">Lien avec d'autres actions</label>
+				    <div>
+					    <div style="list-style-type:none;">
+					    			<span ng-repeat="actionlier in actionactions">
+					    					<a href="#/action/consulter/{{actionlier.id}}/true" >{{actionlier.code_action}} </a>
+					    					<i ng-click="delieraction(actionlier)" ng-show="editableForm2.$visible" class="glyphicon glyphicon-remove">
+											</i>
+											<span ng-show="$index!=(actionactions.length-1)">,</span>  
+					    			</span><br/>
+					    			<a ng-show="editableForm2.$visible" class="btn btn-default" ng-click="associerlieraction()"> Choisir une action </a>
+					    </div>
+				   </div>
+				  </div>
+			    </div>
+			   </div>
+			</div>
+			<div class="panel panel-default">
+			<div class="panel-heading">Contexte</div>
+				<div>
+				  <div class="form-group">
+				    <label class="col-sm-2 control-label formEditable">Contexte de l'action</label>
+				    <div class="col-sm-7" ng-show="editableForm2.$visible">
+					     <span editable-textarea="actionDetails.contexte_action" e-name="contexte_action" e-rows="20" e-cols="200">{{ actionDetails.contexte_action || 'Non renseigné' }}</span>
+				    </div>
+				    <div class="col-sm-7" ng-show="!editableForm2.$visible">
+					     <span ng-show="!iscollapsed3">{{ actionDetails.contexte_action || 'Non renseigné' | limitTo:100 }}...</span>
+					     <td><b style="cursor:pointer" class="glyphicon glyphicon-zoom-in addtips" ng-click="chargerPopupVoirContexte()" data-placement="top" title="Cliquer pour voir plus"></b></td>
+				    </div>
+				  </div>
+				  
+				  <div id="idModalVoirContexte" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+				aria-hidden="true">
+				<div class="modal-dialog modal-lg" style="height: 60%; width: 90%">
+					<div class="modal-content">
+
+						<div class="panel panel-success">
+							<div class="panel-body">
+								<div>
+										<span rows="3">{{actionDetails.contexte_action || 'Non renseigné'}}</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					</div>
+					</div>
+				  
+				  <div class="form-group">
+				    <label class="col-sm-2 control-label formEditable">Objectif quantitatif de l'action</label>
+				    <div class="col-sm-7">
+					     <span editable-text="actionDetails.objectifs_quantitatifs" e-name="objectifs_quantitatifs" e-required>{{ actionDetails.objectifs_quantitatifs || 'Non renseigné' }}</span>
+				    </div>
+				  </div>
+				  <div class="form-group">
+				    <label class="col-sm-2 control-label formEditable">Gains énergie</label>
+				    <div class="col-sm-7">
+						<span  editable-text="actionDetails.gains_energie" e-name="gains_energie" e-required>{{ actionDetails.gains_energie || 'Non renseigné' }}</span>
+				    </div>
+				  </div>
+				  <div class="form-group">
+				    <label class="col-sm-2 control-label formEditable">Gains GES</label>
+				    <div class="col-sm-7">
+						<span  editable-text="actionDetails.gains_ges" e-name="gains_ges" e-required>{{ actionDetails.gains_ges || 'Non renseigné' }}</span>
+				    </div>
+				  </div>
+				</div>
+			</div>
+		  <hr ng-show="donneeUtilisateur.role_utilisateur==1  || propritaire=='true' " class="faded"/>
+		  <div class="form-group"  ng-show="donneeUtilisateur.role_utilisateur==1  || propritaire=='true' " class="buttons" >
+		    <div class="col-sm-offset-2 col-sm-10">
+     			<button ng-show="editableForm2.$visible" type="submit" class="btn btn-primary" ng-disabled="editableForm2.$waiting" >
+         			Sauvegarder
+       			</button>
+       			<button ng-show="editableForm2.$visible" type="button" class="btn btn-default" ng-disabled="editableForm2.$waiting" ng-click="editableForm2.$cancel()">
+         			Annuler
+       			</button>
+		    </div>
+		  </div>
+		</form>
+      </div>
+    </div>
+  </div>
+ </div>
+  
+  <!-- Pilotage -->
+   <div class="panel panel-info">
+    <div style="cursor:pointer" class="panel-heading">
+      <h4 style="cursor:pointer" class="col-sm-3 panel-title">Pilotage</h4>
+      <b style="cursor:pointer" class="col-sm-2 glyphicon glyphicon-pencil addtips" ng-show="iscollapsed2 && (donneeUtilisateur.role_utilisateur=='1' || propritaire=='true')" ng-click="editableForm3.$show()" ng-show="!editableForm3.$visible" data-placement="top" title="Cliquer pour modifier cette partie"> Modifier</b>
+      <i style="cursor:pointer" class="col-sm-offset-8 glyphicon glyphicon-chevron-up addtips" ng-show="iscollapsed2 && (donneeUtilisateur.role_utilisateur!='1' || propritaire!='true')" ng-click="iscollapsed2=!iscollapsed2" data-toggle="collapse" href="#pilotage" data-placement="top" title="Cliquer pour agrandir cette partie"></i>
+      <i style="cursor:pointer" class="col-sm-offset-8 glyphicon glyphicon-chevron-up addtips" ng-show="iscollapsed2 && (donneeUtilisateur.role_utilisateur=='1' || propritaire=='true')" ng-click="iscollapsed2=!iscollapsed2" data-toggle="collapse" href="#pilotage" data-placement="top" title="Cliquer pour agrandir cette partie"></i>
+      <i style="cursor:pointer" class="col-sm-offset-8 glyphicon glyphicon-chevron-down addtips" ng-show="!iscollapsed2 && (donneeUtilisateur.role_utilisateur!='1' || propritaire!='true')" ng-click="iscollapsed2=!iscollapsed2" data-toggle="collapse" href="#pilotage" data-placement="top" title="Cliquer pour r&eacute;duire cette partie"><br/></i>
+      <i style="cursor:pointer" class="col-sm-offset-6 glyphicon glyphicon-chevron-down addtips" ng-show="!iscollapsed2 && (donneeUtilisateur.role_utilisateur=='1' || propritaire=='true')" ng-click="iscollapsed2=!iscollapsed2" data-toggle="collapse" href="#pilotage" data-placement="top" title="Cliquer pour r&eacute;duire cette partie"><br/></i>
+    </div>
+    <div id="pilotage" class="panel-collapse collapse">
+      <div class="panel-body">
+		<h4 style="color:#2b669a">Contacts</h4>
+		<div ng-repeat="utilisateur in actionDetails.utilisateurs">
+			<table class="table">		  
+		    <tr>
+		    	<td>
+		        	<span><b style="color:#2b669a"><i>Direction pilote : </i></b>{{ utilisateur.organisation || 'Non renseigné' }}</span><br>
+			    	<span><b style="color:#2b669a"><i>Nom : </i></b>{{ utilisateur.nom_utilisateur || 'Non renseigné' }}</span><br>
+			    	<span><b style="color:#2b669a"><i>Prénom : </i></b>{{ utilisateur.prenom_utilisateur || 'Non renseigné' }}</span><br>
+			    	<span><b style="color:#2b669a"><i>E-mail : </i></b><a target="_blank" href="http://192.168.68.5/#2" style="cursor:pointer" class="addtips" data-placement="top" title="Cliquer pour envoyer un message &agrave; ce contact">{{ utilisateur.email || 'Non renseigné' }} <span class="glyphicon glyphicon-envelope"></span></a></span><br>
+			    	<span><b style="color:#2b669a"><i>Téléphone standard : </i></b>{{ utilisateur.tel_standard || 'Non renseigné' }}</span><br>
+			    	<span><b style="color:#2b669a"><i>Téléphone interne : </i></b>{{ utilisateur.tel_interne || 'Non renseigné' }}</span><br>
+		      	</td>
+		  	  </tr>
+		  	 </table><br>
+      	</div>
+      	
+      	<form form editable-form name="editableForm3" class="form-horizontal"  onaftersave="sauvegarderAction()">
+      	  <div class="form-group">
+		   <br> <label class="col-sm-2 control-label formEditable">Directions et agents r&eacute;f&eacute;rents associ&eacute;s</label>
+		    <div class="col-sm-7 ">
+				<span  editable-text="actionDetails.referents_associes" e-name="referents_associes" e-required>{{ actionDetails.referents_associes || 'Non renseigné' }}</span>
+		    </div>
+		  </div>
+		  
+		  <div class="form-group">
+		   <br> <label class="col-sm-2 control-label formEditable">Maîtrise d'ouvrage</label>
+		    <div class="col-sm-7 ">
+				<span  editable-text="actionDetails.maitrise_ouvrage" e-name="maitrise_ouvrage" e-required>{{ actionDetails.maitrise_ouvrage || 'Non renseigné' }}</span>
+		    </div>
+		  </div>
+		  <div class="form-group">
+		    <label class="col-sm-2 control-label formEditable">Partenaires potentiels</label>
+		    <div class="col-sm-7 ">
+		    	<div  ng-show="editableForm3.$visible"   class="col-md-7">
+				   <div class="input-group">
+				     <input ng-model="nouveauxPartenaire" type="text" class="form-control">
+				      <span class="input-group-btn">
+				      <button ng-click="setParametre(nouveauxPartenaire)" class="btn btn-default" type="button">Ajouter le partenaire</button><br>
+				     </span>
+				   </div> 
+				</div>
+				<div ng-show="editableForm3.$visible" class="col-md-4">
+				</div>
+				<table class="table">
+		    		<tbody>
+		    			<tr  ng-repeat="partenaire in actionDetails.partenaires">
+		    				<td>
+		    					{{partenaire.nom_partenaire}}
+		    				</td>
+		    				<td>
+		    					<button ng-click="delParametre(partenaire)" ng-show="editableForm3.$visible" type="button" class="btn btn-default btn-sm">
+									Supprimer
+								</button>
+		    				</td>
+		    			</tr>
+		    		</tbody>
+		    	</table>
+		    	<hr ng-show="donneeUtilisateur.role_utilisateur==1  || propritaire=='true' " class="faded"/>
+		  		<div class="form-group"  ng-show="donneeUtilisateur.role_utilisateur==1  || propritaire=='true' " class="buttons" >
+		    	<div class="col-sm-offset-2 col-sm-10">
+     				<button ng-show="editableForm3.$visible" type="submit" class="btn btn-primary" ng-disabled="editableForm3.$waiting" >
+         				Sauvegarder
+       				</button>
+       				<button ng-show="editableForm3.$visible" type="button" class="btn btn-default" ng-disabled="editableForm3.$waiting" ng-click="editableForm3.$cancel()">
+         				Annuler
+       				</button>
+		    	</div>
+		  </div>
+		    </div>
+		  </div>
+		</form>
+      	
+      	
+    </div> 
+  </div>
+  </div>

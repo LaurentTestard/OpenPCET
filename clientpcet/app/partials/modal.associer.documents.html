@@ -1,0 +1,33 @@
+<div class="modal-body">
+	<div class="row">
+		<div class="col-md-6">
+			<ul class="list-group">
+				<li class="list-group-item list-group-item-warning">Actions non associées</li>
+				<li class="list-group-item list-group-item-warning">
+					<div class="input-group">	
+						<input class="form-control" ng-model="filterActionsNA" type="text" ></input>
+						<span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
+					</div>
+				</li>
+				<li ng-click="lierAction(actionnonlie)" ng-repeat="actionnonlie in actionnonlies | filter:filterActionsNA" style="cursor: pointer" class="list-group-item">
+					{{actionnonlie.nom_action}} 
+				</li>
+			</ul>
+		</div>
+		<div class="col-md-6">
+			<ul class="list-group">
+				<li class="list-group-item list-group-item-success">Actions associées</li>
+				<li class="list-group-item list-group-item-success	">
+					<div class="input-group">
+					  <input class="form-control" ng-model="filterActionsA" type="text" > </input>
+					  <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
+					</div>
+				</li>
+			    <li ng-click="delierAction(actionlie)" ng-repeat="actionlie in actionlies | filter:filterActionsA" style="cursor: pointer" class="list-group-item">
+			    	{{actionlie.nom_action}}
+			    </li>
+			</ul>
+		</div>
+	</div>
+	<button class="btn btn-primary" ng-click="ok()">Retour</button>
+</div>

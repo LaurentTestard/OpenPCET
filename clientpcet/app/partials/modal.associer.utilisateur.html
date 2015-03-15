@@ -1,0 +1,21 @@
+<div class="modal-body">
+	<div class="row">
+		<div class="col-md-6">
+			<ul class="list-group">
+				<li class="list-group-item list-group-item-warning">Actions non associées</li>
+				<li ng-click="lierAction(actionnonlie)" ng-repeat="actionnonlie in actionnonlies" style="cursor: pointer" class="list-group-item">
+					<span class="addtips" data-placement="top" title="Cliquer pour lier cette action">{{actionnonlie.code_action}} : {{actionnonlie.nom_action}}</span>
+				</li>
+			</ul>
+		</div>
+		<div class="col-md-6">
+			<ul class="list-group">
+				<li class="list-group-item list-group-item-success">Actions associées</li>
+			    <li ng-click="delierAction(actionlie)" ng-repeat="actionlie in actionlies" style="cursor: pointer" class="list-group-item">
+			    	<span class="addtips" data-placement="top" title="Cliquer pour d&eacute;lier cette action">{{actionlie.code_action}} : {{actionlie.nom_action}}</span>
+			    </li>
+			</ul>
+		</div>
+	</div>
+	<!-- <button class="btn btn-primary" ng-click="ok()">Retour</button> -->
+</div>

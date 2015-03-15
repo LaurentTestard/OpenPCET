@@ -1,0 +1,27 @@
+<h3>Menu Exportation</h3>
+<div style="overflow-y: auto;" class="panel panel-default">
+	<div class="panel-heading">
+		<div class="col-sm-3">
+	    	<input class="form-control input-sm" ng-model="recherche_nom_fiche" ng-show="fiches.length>0" type="text" placeholder="Recherche">
+	  	</div>
+	  	<div>
+			<a style="cursor:pointer" ng-click="imprimerfiche()" class="glyphicon glyphicon-refresh addtips" data-placement="top" title="Cliquer pour t&eacute;l&eacute;charger ce fichier" ></a>
+			<a style="cursor:pointer" class="glyphicon glyphicon-download-alt addtips" target="_blank" href="/serveurpcet/fichier/fiches.pdf" data-placement="top" title="Cliquer pour t&eacute;l&eacute;charger ce fichier" ></a>
+			<a ng-click="toutimprimer()" ng-model="selectall" class="addtips glyphicon glyphicon-ok" data-placement="top" title="Cliquer pour s&eacute;lectionner toutes les fiches"></a>
+		</div>
+	</div>
+  <!-- Default panel contents -->
+  	<form>
+	    <table class="table" >
+	        <tbody>
+	          <tr ng-repeat="fiche in fiches | filter:recherche_nom_fiche | orderBy:'id':reverse=true">
+	            <td>{{fiche.nom_fiche}}</td>
+	            <td> </td>
+	            <td> </td>
+	            <td><input type="checkbox" ng-model="checkboxfiches[fiche.nom_fiche]" ng-true-value={{fiche.nom_fiche}} ng-false-value="'NO'"></td>
+	          </tr>
+	          
+	        </tbody>
+	      </table>
+     </form>
+</div>

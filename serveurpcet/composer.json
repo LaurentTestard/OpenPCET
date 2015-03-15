@@ -1,0 +1,23 @@
+{
+	"autoload" : {
+		"psr-4" : {
+			"Ujf\\Serveurpcet\\" : "app"
+		},
+		"classmap" : [
+			"app/src"
+		]
+	},
+	"name" : "ujf/serveurpcet",
+	"require" : {
+		"php" : ">=5.4",
+		"gabordemooij/redbean" : "dev-master",
+		"phpunit/phpunit" : "3.7.32",
+		"slim/slim" : "2.*",
+		"symfony/validator" : "v2.3.11",
+		"psr/log" : "1.0.0",
+		"phpexcel/phpexcel" : "1.7.7",
+		"anouar/fpdf" : "dev-master",
+		"phpmailer/phpmailer" : "5.2.8"
+	},
+	"minimum-stability" : "dev"
+}

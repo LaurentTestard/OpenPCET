@@ -1,0 +1,1 @@
+Doc : https://github.com/danialfarid/angular-file-upload

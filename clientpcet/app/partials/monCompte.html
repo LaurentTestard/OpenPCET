@@ -1,0 +1,114 @@
+<div class="panel-group" id="accordion">
+
+  <!-- Mes informations -->
+  <div class="panel panel-default">
+    <div style="cursor:pointer" class="panel-heading addtips" data-toggle="collapse" href="consulter-action/#infoPersonnel" data-placement="top" title="Cliquer pour r&eacute;duire ou agrandrir cette partie">
+      <h4 class="panel-title">Mes informations</h4>
+    </div>
+    <div id="infoPersonnel" class="panel-collapse collapse in">
+      <div class="panel-body">
+      <form name="form_utilisateur" class="form-horizontal" role="form" ng-model="utilisateur">
+      
+      
+		<div class="form-group">		
+			<label class="col-sm-2 control-label">Nom</label>
+				<div class="col-sm-4">
+				<input type="text" ng-model="utilisateur.nom_utilisateur" class="form-control" placeholder="Nom" required/>
+			</div>		
+		</div>
+		<div class="form-group">		
+			<label class="col-sm-2 control-label">Prénom</label>
+				<div class="col-sm-4">
+				<input type = "text" ng-model="utilisateur.prenom_utilisateur" class="form-control" placeholder="Prénom" required />
+			</div>		
+		</div>
+		<div class="form-group">		
+			<label class="col-sm-2 control-label">Login</label>
+				<div class="col-sm-4">
+				<input type="text" ng-model="utilisateur.login_utilisateur" class="form-control" placeholder="Login" required/>
+			</div>		
+		</div>
+		<div class="form-group">		
+			<label class="col-sm-2 control-label">Adresse email</label>
+				<div class="col-sm-4">
+				<input name="email" type="email" ng-model="utilisateur.email" class="form-control" placeholder="Email" required/>
+			</div>		
+		</div>
+		<div class="form-group">		
+			<label class="col-sm-2 control-label">Organisation</label>
+					<div class="col-sm-4">
+						<input type="text" ng-model="utilisateur.organisation" class="form-control" placeholder="Organisation"/>
+					</div>		
+		</div>
+		<div class="form-group">		
+			<label class="col-sm-2 control-label">Telephone interne</label>
+					<div class="col-sm-4">
+						<input type="text" ng-model="utilisateur.tel_interne" class="form-control" placeholder="Téléphone interne"/>
+					</div>		
+		</div>
+		<div class="form-group">		
+			<label class="col-sm-2 control-label">Telephone standard</label>
+					<div class="col-sm-4" id="test">
+						<input type="text" ng-model="utilisateur.tel_standard" class="form-control" placeholder="Téléphone standard"/>
+					</div>		
+		</div>
+		
+		<div class="form-group">
+			<div class="col-sm-offset-2 col-sm-10">
+				<button type="submit" class="btn btn-primary" ng-click="controleChampsMonCompte()">Enregistrer</button>
+				<span ng-model="message_erreur_monCompte"  style="color:red">{{message_erreur_monCompte}}</span>
+			</div>
+		</div>
+		</form>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Mot de passe -->
+  <div class="panel panel-default">
+    <div style="cursor:pointer" class="panel-heading addtips" data-toggle="collapse" href="consulter-action/#motdepasse" data-placement="top" title="Cliquer pour r&eacute;duire ou agrandrir cette partie">
+      <h4 class="panel-title">Mot de passe</h4>
+    </div>
+    <div id="motdepasse" class="panel-collapse collapse">
+    
+      <div class="panel-body">
+      
+      	  <form name ="form_changer_MDP" class="form-horizontal" role="form">
+      	  
+      	  <div class="form-group">		
+			<label class="col-sm-2 control-label">Mot de passe actuel</label>
+					<div class="col-sm-4">
+						<input name="mdp_actuel" id="mdp_actuel" ng-model="motdepasse_actuel" type="password" class="form-control"  placeholder="Mot de passe actuel" required />
+					</div>		
+		  </div>
+      	  
+      	  		
+		<div class="form-group">		
+			<label class="col-sm-2 control-label">Nouveau mot de passe</label>
+					<div class="col-sm-4">
+						<input name = "mdp_nouveau" id="mdp_nouveau" ng-change="verification()" ng-model="motdepasse_nouveau" class="form-control" type="password" placeholder="Nouveau mot de passe" required/>
+					</div>		
+		  </div>
+		  
+		  <div class="form-group">		
+			<label class="col-sm-2 control-label">Confirmation du mot de passe</label>
+					<div class="col-sm-4">
+						<input name="mdp_confirmation"  id="mdp_confirmation" ng-change="verification()" ng-model="motdepasse_confirmation" class="form-control" type="password"  placeholder="Confirmation du mot de passe" required/>
+						<span ng-model="message_erreur"  style="color:red">{{message_erreur}}</span>
+					</div>		
+		  </div>
+		
+		<div class="form-group">
+			<div class="col-sm-offset-2 col-sm-10" ng-init='gestion_bouton_enregistrer_MDP = "false"'>
+				<button id="btn_modifierMDP" disabled="disabled" type="submit" class="btn btn-primary" ng-click="enregistrerMotDePasse()">Enregistrer mot de passe</button>
+			</div>
+		</div>
+	</form>
+		
+		
+      
+      
+      </div>
+    </div>
+  </div>
+</div>

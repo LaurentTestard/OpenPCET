@@ -1,0 +1,11 @@
+logs/*
+!.gitkeep
+node_modules/
+tmp
+.DS_Store
+.idea
+/.settings
+/.project
+/.buildpath
+config/karma.conf.js
+/.tern-project

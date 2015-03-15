@@ -1,0 +1,16 @@
+<h2>Bienvenue sur l'espace de suivi du Plan Climat Air Energie Territorial de votre organisation !</h2> 
+<br/>
+<br/>
+<p><i>Parcourez le menu sur la gauche pour accéder aux différentes catégories !</i></p><br/>
+
+<h4 ng-show="documents.length!=0"><i>Actualit&eacute;s : </i></h4>
+<table class="table" >
+        <tbody>
+          <tr ng-repeat="document in documents | filter:recherche_nom_document | orderBy:'id':reverse=true" ng-show="document.type_document=='info'">
+	            <td>{{document.nom_document}}</td>
+	            <td ng-show="donneeUtilisateur.role_utilisateur=='1'"><b style="cursor:pointer" class="glyphicon glyphicon-trash addtips" ng-click="supDoc(document)" data-placement="top" title="Cliquer pour supprimer ce fichier"> Supprimer</b></td>
+	            <td><a style="cursor:pointer" class="glyphicon glyphicon-download-alt addtips" target="_blank" href="/serveurpcet/index.php/document/{{document.id}}" data-placement="top" title="Cliquer pour t&eacute;l&eacute;charger ce fichier" > Télécharger</a> </td>
+          </tr>
+          
+        </tbody>
+      </table>

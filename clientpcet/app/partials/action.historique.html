@@ -1,0 +1,38 @@
+<div class="navbar navbar-default">
+<h5>
+	<b>{{ actionDetails.objectifstrategique.nom_objectif_strategique || 'Non renseigné' }}</b>
+	<i ng-show="actionDetails.est_adaptation"> (Adaptation)</i>
+	<i ng-show="actionDetails.est_attenuation"> (Atténuation)</i><br/>
+	<i>{{ actionDetails.code_action || 'Non renseigné' }} : {{ actionDetails.nom_action || 'Non renseigné' }}</i>
+	<a style="cursor:pointer" class="glyphicon glyphicon-download-alt addtips" target="_blank" href="/serveurpcet/fichier/{{ actionDetails.code_action}}.pdf" data-placement="top" title="Cliquer pour t&eacute;l&eacute;charger ce fichier" ></a>
+</h5>
+</div> 
+<!-- Historique action -->
+<div class="panel panel-danger" ng-controller="historique">
+	<div class="panel-heading">
+	<h4 class="panel-title">Historique des modifications</h4>
+	</div>
+	<div class="panel-body">
+		<table class="table table-striped table-hover">
+			<thead>
+				<tr>
+					<th>Date de modification</th>
+					<th>Nom de l'utilisateur</th>
+					<th>Type de modification</th>
+					<th>Description</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="historique in historiques">
+					<td><nobr>
+							{{historique.jour_modification}} {{historique.heure_modification}}
+							<nobr /></td>
+					<td>{{historique.nom_utilisateur}} {{historique.prenom_utilisateur}}</td>
+					<td>{{historique.type_modification}}</td>
+					<td>{{historique.description_modification}}</td>
+					<td ng-show=propritaire=='true'><b style="cursor:pointer" class="glyphicon glyphicon-trash addtips" ng-click="supprimerHistorique(historique)" data-placement="top" title="Cliquer pour supprimer cette information"></b></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

@@ -1,0 +1,12 @@
+<div class="modal-body">
+	<div class="row">
+		<div class="col-md-offset-2 col-md-8">
+			<ul class="list-group">
+				<li class="list-group-item list-group-item-warning">Actions non associées</li>
+				<li ng-click="ok(actionnonlie)" ng-repeat="actionnonlie in actionnonliers" style="cursor: pointer" class="list-group-item">
+					{{actionnonlie.code_action}} : {{actionnonlie.nom_action}}
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>

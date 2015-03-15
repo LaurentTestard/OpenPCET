@@ -1,0 +1,201 @@
+<!-- Recherche des actions -->
+
+<button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#recherche" ng-click="enableFiltreButton()">Recherche avancée des actions</button>
+<button type="button" class="btn btn-primary" data-toggle="collapse" ng-click="RAZfiltre()"  ng-disabled="annulerFiltreEtat">Annuler filtres</button>
+<div class="pull-right">
+<button type="button" class="btn btn-primary pull-right" ng-click="ajouterActionModal(objectifs_strategiques)">
+  		 	<span class="glyphicon glyphicon-plus"></span> Ajouter une action
+ </button>
+
+<!-- <a href="#/impression" class="addtips" data-placement="top" title="Cliquer pour acc&eacute;der au menu des impressions"><button type="button" class="btn btn-large btn-primary glyphicon glyphicon-print"> Imprimer</button></a>-->
+</div>				 
+			
+
+<div id="recherche" class="panel panel-default collapse">
+	<form name="form_recherche" class="form-horizontal" role="form" ng-model="recherche" style="margin-top:15px">
+	
+		<div class="form-group">
+		<label class="col-sm-2 control-label" >Filtres appliqués sur </label>
+			<label class="radio-inline">
+		   		 <input type="radio" ng-model="filtre_avance" value="toutesactions"> Toutes les actions 
+		    </label>
+			<label class="radio-inline">
+				 <input type="radio" ng-model="filtre_avance" value="mesactions"> Mes Actions  
+	     	</label> 
+		</div>
+		
+		<div class="form-group">
+			<label for="objectif_strategique" class="col-sm-2 control-label" >Objectif stratégique</label>
+			<div class="col-sm-7">
+				<select ng-show="filtre_avance == 'mesactions'" id="objectif_strategique" class="form-control" ng-model="mesactions.objectif_strategique">
+					<option value="">Sélectionner un objectif stratégique</option>
+					<option ng-repeat="objectif in objectifs_strategiques">{{objectif.nom_objectif_strategique}}</option>
+				</select>
+				<select ng-show="filtre_avance == 'toutesactions'" id="objectif_strategique" class="form-control" ng-model="toutesactions.objectif_strategique">
+					<option value="">Sélectionner un objectif stratégique</option>
+					<option ng-repeat="objectif in objectifs_strategiques">{{objectif.nom_objectif_strategique}}</option>
+				</select>
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="thematique" class="col-sm-2 control-label" >Thématique</label>
+			<div class="col-sm-7">
+				<select ng-show="filtre_avance == 'mesactions'" id="engagement_thematique" class="form-control" ng-model="mesactions.engagement_thematique">
+					<option value="">Sélectionner un engagement thématique</option>
+					<option ng-repeat="thematique in engagements">{{thematique.nom_engagement_thematique}}</option>
+				</select>
+				<select ng-show="filtre_avance == 'toutesactions'" id="engagement_thematique" class="form-control" ng-model="toutesactions.engagement_thematique">
+					<option value="">Sélectionner un engagement thématique</option>
+					<option ng-repeat="thematique in engagements">{{thematique.nom_engagement_thematique}}</option>
+				</select>
+			</div>
+		</div>
+		
+		<div class="form-group">
+			<label for="mots_cles" class="col-sm-2 control-label">Mots-clés</label>
+			<div class="col-sm-7">
+				<select ng-show="filtre_avance == 'mesactions'"id="mot_cle" class="form-control" ng-model="mesactions.mots_clefs">
+					<option value="">Sélectionner un mot clé</option>
+					<option ng-repeat="mot_clef in mots_clefs">{{mot_clef.nom_mot_clef}}</option>
+				</select>
+				<select ng-show="filtre_avance == 'toutesactions'" id="mot_cle" class="form-control" ng-model="toutesactions.mots_clefs">
+					<option value="">Sélectionner un mot clé</option>
+					<option ng-repeat="mot_clef in mots_clefs">{{mot_clef.nom_mot_clef}}</option>
+				</select>
+			</div>
+		</div>
+		
+	</form>
+</div>
+<h1 ng-show="donneeUtilisateur.role_utilisateur==2  || donneeUtilisateur.role_utilisateur==1 ">Mes actions </h1>
+<table    ng-show="donneeUtilisateur.role_utilisateur==2  || donneeUtilisateur.role_utilisateur==1 " class="table table-striped table-hover">
+      <thead>
+      	<tr>
+      	<td>
+     	 	<input class="form-control input-sm" ng-model="mesactions.code_action" type="texte" placeholder="Filtrer par code action">
+     	 </td>
+      	
+      	<td>
+     	 	<input class="form-control input-sm" ng-model="mesactions.nom_action" type="texte" placeholder="Filtrer par nom d'une action">
+     	 </td>
+    	<td/>
+		<td/>
+     	  <td>
+     	 	<select class="form-control" ng-model="mesactions.avancement">
+											<option value="">Choisir un avancement</option>
+											<option>Non démarrée</option>
+											<option>En projet</option>
+											<option>En cours</option>
+											<option>Terminée</option>
+											<option>Supendue / reportée</option>
+										</select>
+     	 </td>
+      	</tr>
+      
+        <tr>
+         <th style="cursor:pointer;" href="" ng-click="changerTri('code_action')">Code de l'action 
+        	  <span ng-show="sort_mes_actions== 'code_action' && !reverse"  class="glyphicon glyphicon-chevron-up"/> 
+        	  <span ng-show="sort_mes_actions== 'code_action' && reverse"  class="glyphicon glyphicon-chevron-down"/>
+        	  <span ng-show="sort_mes_actions != 'code_action'"/>
+       	  </th>
+       	  <th style="cursor:pointer;" href="" ng-click="changerTri('nom_action')">Intitulé de l'action 
+        	  <span ng-show="sort_mes_actions== 'nom_action' && !reverse"  class="glyphicon glyphicon-chevron-up"/> 
+        	  <span ng-show="sort_mes_actions== 'nom_action' && reverse"  class="glyphicon glyphicon-chevron-down"/>
+        	  <span ng-show="sort_mes_actions != 'nom_action'"/>
+       	  </th>
+       	   <th style="cursor:pointer;" href="" ng-click="changerTri('date_debut')">Date de début prévue
+        	  <span ng-show="sort_mes_actions== 'date_debut' && !reverse"  class="glyphicon glyphicon-chevron-up"/> 
+        	  <span ng-show="sort_mes_actions== 'date_debut' && reverse"  class="glyphicon glyphicon-chevron-down"/>
+        	  <span ng-show="sort_mes_actions != 'date_debut'"/>
+       	  </th>
+       	   <th style="cursor:pointer;" href="" ng-click="changerTri('date_fin')">Date de fin prévue
+        	  <span ng-show="sort_mes_actions== 'date_fin' && !reverse"  class="glyphicon glyphicon-chevron-up"/> 
+        	  <span ng-show="sort_mes_actions== 'date_fin' && reverse"  class="glyphicon glyphicon-chevron-down"/>
+        	  <span ng-show="sort_mes_actions != 'date_fin'"/>
+       	  </th>
+       	    <th style="cursor:pointer;" href="" ng-click="changerTri('avancement')">Avancement
+        	  <span ng-show="sort_mes_actions== 'avancement' && !reverse"  class="glyphicon glyphicon-chevron-up"/> 
+        	  <span ng-show="sort_mes_actions== 'avancement' && reverse"  class="glyphicon glyphicon-chevron-down"/>
+        	  <span ng-show="sort_mes_actions != 'avancement'"/>
+       	  </th>
+         
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="cursor:pointer;" ng-repeat="action in actionsUtilisateur | filter:mesactions  | orderBy:sort_mes_actions:reverse"  ng-click="actionUtilisateurClique(action)">
+          <td>{{action.code_action}}</td>
+          <td>{{action.nom_action}}</td>
+          <td>{{action.date_debut | date:'dd/MM/yyyy'}}</td>
+          <td>{{action.date_fin | date:'dd/MM/yyyy'}}</td>
+          <td>{{action.avancement}}</td>
+        </tr>
+      </tbody>
+</table>
+<h1>Toutes les actions</h1>
+<table class="table table-striped table-hover">
+	
+      <thead>
+      <tr>
+      	<td>
+     	 	<input class="form-control input-sm" ng-model="toutesactions.code_action" type="texte" placeholder="Filtrer par code action">
+     	 </td>
+      	
+      	<td>
+     	 	<input class="form-control input-sm" ng-model="toutesactions.nom_action" type="texte" placeholder="Filtrer par nom d'une action"">
+     	 </td>
+      	<td/>
+		<td/>
+     	<td>
+     	 	<select class="form-control" ng-model="toutesactions.avancement">
+				<option value="">Choisir un avancement</option>
+				<option>Non démarrée</option>
+				<option>En projet</option>
+				<option>En cours</option>
+				<option>Terminée</option>
+				<option>Supendue / reportée</option>
+			</select>
+     	 </td>
+     	 
+     	 
+      	</tr>
+      
+      
+        <tr>
+           <th style="cursor:pointer;" href="" ng-click="changerTriToutesActions('code_action')">Code de l'action 
+        	  <span ng-show="sort_toutes_actions== 'code_action' && !reverse_toutes_actions"  class="glyphicon glyphicon-chevron-up"/> 
+        	  <span ng-show="sort_toutes_actions== 'code_action' && reverse_toutes_actions"  class="glyphicon glyphicon-chevron-down"/>
+        	  <span ng-show="sort_toutes_actions != 'code_action'"/>
+       	  </th>
+       	  <th style="cursor:pointer;" href="" ng-click="changerTriToutesActions('nom_action')">Intitulé de l'action 
+        	  <span ng-show="sort_toutes_actions== 'nom_action' && !reverse_toutes_actions"  class="glyphicon glyphicon-chevron-up"/> 
+        	  <span ng-show="sort_toutes_actions== 'nom_action' && reverse_toutes_actions"  class="glyphicon glyphicon-chevron-down"/>
+        	  <span ng-show="sort_toutes_actions != 'nom_action'"/>
+       	  </th>
+       	   <th style="cursor:pointer;" href="" ng-click="changerTriToutesActions('date_debut')">Date de début prévue
+        	  <span ng-show="sort_toutes_actions== 'date_debut' && !reverse_toutes_actions"  class="glyphicon glyphicon-chevron-up"/> 
+        	  <span ng-show="sort_toutes_actions== 'date_debut' && reverse_toutes_actions"  class="glyphicon glyphicon-chevron-down"/>
+        	  <span ng-show="sort_toutes_actions != 'date_debut'"/>
+       	  </th>
+       	   <th style="cursor:pointer;" href="" ng-click="changerTriToutesActions('date_fin')">Date de fin prévue
+        	  <span ng-show="sort_toutes_actions== 'date_fin' && !reverse_toutes_actions"  class="glyphicon glyphicon-chevron-up"/> 
+        	  <span ng-show="sort_toutes_actions== 'date_fin' && reverse_toutes_actions"  class="glyphicon glyphicon-chevron-down"/>
+        	  <span ng-show="sort_toutes_actions != 'date_fin'"/>
+       	  </th>
+       	    <th style="cursor:pointer;" href="" ng-click="changerTriToutesActions('avancement')">Avancement
+        	  <span ng-show="sort_toutes_actions == 'avancement' && !reverse_toutes_actions"  class="glyphicon glyphicon-chevron-up"/> 
+        	  <span ng-show="sort_toutes_actions == 'avancement' && reverse_toutes_actions"  class="glyphicon glyphicon-chevron-down"/>
+        	  <span ng-show="sort_toutes_actions != 'avancement'"/>
+       	  </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="cursor:pointer;" ng-repeat="action in actionsGeneral | filter:toutesactions | orderBy:sort_toutes_actions:reverse_toutes_actions" ng-click="actionNomClique(action)">
+          <td>{{action.code_action}}</td>
+          <td>{{action.nom_action}}</td>
+          <td>{{action.date_debut  | date:'dd/MM/yyyy'}}</td>
+          <td>{{action.date_fin | date:'dd/MM/yyyy'}}</td>
+          <td>{{action.avancement}}</td>
+        </tr>
+      </tbody>
+      
+</table>

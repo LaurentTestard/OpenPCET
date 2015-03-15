@@ -1,0 +1,5 @@
+http://demos.telerik.com/kendo-ui/dataviz/sparklines/index.html
+http://jqueryuivskendoui.com/#data-visualization
+http://getbootstrap.com/examples/navbar-fixed-top/#
+http://docs.angularjs.org/api/ngMock/service/$httpBackend
+http://nathanleclaire.com/blog/2013/12/13/how-to-unit-test-controllers-in-angularjs-without-setting-your-hair-on-fire/

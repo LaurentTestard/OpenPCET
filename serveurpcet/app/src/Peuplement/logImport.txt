@@ -1,0 +1,177 @@
+Parsing du fichier ./FichesActionsPourBaseTest\C 1.1 -  Mise en place du dispositif  Conseil en Energie Partag�.xls en cours ... 
+
+
+Parsing du fichier ./FichesActionsPourBaseTest\C 1.2 - Accompagner les communes dans un PCET communal .xls en cours ... 
+
+Récupération de l'avancement de la phase 1 de la fiche action : ERREUR : L'état d'avancement de cette phase doit être l'une des valeurs suivantes : en cours, en projet, réalisé ou reporté / suspendu 
+Récupération de l'avancement de la phase 2 de la fiche action : ERREUR : L'état d'avancement de cette phase doit être l'une des valeurs suivantes : en cours, en projet, réalisé ou reporté / suspendu 
+Récupération de l'avancement de la phase 3 de la fiche action : ERREUR : L'état d'avancement de cette phase doit être l'une des valeurs suivantes : en cours, en projet, réalisé ou reporté / suspendu 
+
+Parsing du fichier ./FichesActionsPourBaseTest\C 1.3 - R�aliser un groupement de commandes.xls en cours ... 
+
+
+Parsing du fichier ./FichesActionsPourBaseTest\C 2.1 - Strat�gie de com sur MDE.xlsx en cours ... 
+
+
+Parsing du fichier ./FichesActionsPourBaseTest\CC 1.1- Mutualiser les outils de suivi des impacts du CC.xls en cours ... 
+
+
+Parsing du fichier ./FichesActionsPourBaseTest\CC 1.2 -Partenariats Experts-collectivit�s.xlsx en cours ... 
+
+
+Parsing du fichier ./FichesActionsPourBaseTest\CC 1.3- Structurer un programme de sensibilisation au CC.xls en cours ... 
+
+
+Parsing du fichier ./FichesActionsPourBaseTest\CC 2.2 - Engager une d�marche globale d'une bonne gestion de l'eau.xls en cours ... 
+
+
+Parsing du fichier ./FichesActionsPourBaseTest\CC2.1 - Prendre en compte l'�nergie et le climat dans contrat de rivi�re.xls en cours ... 
+
+
+Parsing du fichier ./FichesActionsPourBaseTest\CC3.1 - Approfondir les connaissances sur les ph�nom�nes de crues.xls en cours ... 
+
+
+Parsing du fichier ./FichesActionsPourBaseTest\CC3.2 - Sensibiliser � la culture du risque - Version Finale.xls en cours ... 
+
+
+Parsing du fichier ./FichesActionsPourBaseTest\D1.1 - Plan de gestion des d�chets - version Finale.xlsx en cours ... 
+
+
+Parsing du fichier ./FichesActionsPourBaseTest\D1.2 - Communication Grand public pr�vention des d�chets - Version Finale.xlsx en cours ... 
+
+
+Parsing du fichier ./FichesActionsPourBaseTest\D2.1 - Am�lioration collecte d�chets - Version Finale.xlsx en cours ... 
+
+
+Parsing du fichier ./FichesActionsPourBaseTest\D2.2 - Ressourceries - Version Finale.xlsx en cours ... 
+
+Récupération de l'avancement de la phase 1 de la fiche action : ERREUR : L'état d'avancement de cette phase doit être l'une des valeurs suivantes : en cours, en projet, réalisé ou reporté / suspendu 
+Récupération de l'avancement de la phase 2 de la fiche action : ERREUR : L'état d'avancement de cette phase doit être l'une des valeurs suivantes : en cours, en projet, réalisé ou reporté / suspendu 
+
+Parsing du fichier ./FichesActionsPourBaseTest\E1.1 - Gestion �nerg�tique exemplaire.xls en cours ... 
+
+
+Parsing du fichier ./FichesActionsPourBaseTest\E1.2 - Audit et r�novation �nerg�tique du patrimoine intercommunal - Version Finale.xls en cours ... 
+
+
+Parsing du fichier ./FichesActionsPourBaseTest\E2.1 - Plan de D�placements Administration.xlsx en cours ... 
+
+
+Parsing du fichier ./FichesActionsPourBaseTest\E2.2 - Formation �co-conduite - Version Finale.xlsx en cours ... 
+
+
+Parsing du fichier ./FichesActionsPourBaseTest\ENR 1 3 - Creer des partenariats pour d�velopper les �nergies renouvelables sur le territoire1.xls en cours ... 
+
+
+Parsing du fichier ./FichesActionsPourBaseTest\ENR1.1 - Plateforme bois Version Finale.xlsx en cours ... 
+
+
+Parsing du fichier ./FichesActionsPourBaseTest\ENR1.2 -  Etude de potentiels de production des �nergies renouvelables.xlsx en cours ... 
+
+
+Parsing du fichier ./FichesActionsPourBaseTest\EV1.1 - Ecologie industrielle Version Finale.xlsx en cours ... 
+
+
+Parsing du fichier ./FichesActionsPourBaseTest\EV1.2 - Politiques d'am�nagement des nouvelles zones d'activit�s - Version Finale.xls en cours ... 
+
+Récupération des coordonnées de la fiche action : ERREUR : Pour être récupéré, les coordonnées doivent être de la forme suivante : adresseEmail,telStandard,telInterne 
+
+Parsing du fichier ./FichesActionsPourBaseTest\EV1.3.Emplois verts.xls en cours ... 
+
+
+Parsing du fichier ./FichesActionsPourBaseTest\EV1.4 - Plateformes mutualis�es Version Finale.xlsx en cours ... 
+
+
+Parsing du fichier ./FichesActionsPourBaseTest\EV2.1 -  Entreprise et maitrise de l'�nergie Version Finale.xls en cours ... 
+
+
+Parsing du fichier ./FichesActionsPourBaseTest\EV3.1 - Energie agriculture for�t Version Finale.xls en cours ... 
+
+Récupération des coordonnées de la fiche action : ERREUR : Pour être récupéré, les coordonnées doivent être de la forme suivante : adresseEmail,telStandard,telInterne 
+
+Parsing du fichier ./FichesActionsPourBaseTest\EV3.2 - Restauration hors domicile Version Finale.xlsx en cours ... 
+
+
+Parsing du fichier ./FichesActionsPourBaseTest\EV3.3 - Mise en oeuvre PSF Version Finale.xlsx en cours ... 
+
+
+Parsing du fichier ./FichesActionsPourBaseTest\EV3.4 - Multifonction parcelles Version Finale.xls en cours ... 
+
+
+Parsing du fichier ./FichesActionsPourBaseTest\EV3.5 - Fili�re fourrag�re Version Finale.xlsx en cours ... 
+
+
+Parsing du fichier ./FichesActionsPourBaseTest\G 1.3 - Mettre en coh�rence PCET Gr�sivaudan et voisins - Version Finale.xls en cours ... 
+
+
+Parsing du fichier ./FichesActionsPourBaseTest\G 1.4 - Int�grer une dimension air dans le PCET.xls en cours ... 
+
+Récupération de l'avancement de la phase 1 de la fiche action : ERREUR : L'état d'avancement de cette phase doit être l'une des valeurs suivantes : en cours, en projet, réalisé ou reporté / suspendu 
+Récupération de l'avancement de la phase 2 de la fiche action : ERREUR : L'état d'avancement de cette phase doit être l'une des valeurs suivantes : en cours, en projet, réalisé ou reporté / suspendu 
+Récupération de l'avancement de la phase 3 de la fiche action : ERREUR : L'état d'avancement de cette phase doit être l'une des valeurs suivantes : en cours, en projet, réalisé ou reporté / suspendu 
+Récupération de l'avancement de la phase 3 de la fiche action : ERREUR : L'état d'avancement de cette phase doit être l'une des valeurs suivantes : en cours, en projet, réalisé ou reporté / suspendu 
+
+Parsing du fichier ./FichesActionsPourBaseTest\G1.1 - Piloter, mettre en oeuvre, suivre et �valuer le programme d'actions �nergie-climat - Version Finale.xls en cours ... 
+
+
+Parsing du fichier ./FichesActionsPourBaseTest\G1.2 - Partenaires du PCET - Version Finale.xls en cours ... 
+
+
+Parsing du fichier ./FichesActionsPourBaseTest\H1.1 - D�finir une strat�gie d'intervention dans le parc priv�.xls en cours ... 
+
+Récupération de l'avancement de la phase 2 de la fiche action : ERREUR : L'état d'avancement de cette phase doit être l'une des valeurs suivantes : en cours, en projet, réalisé ou reporté / suspendu 
+Récupération de l'avancement de la phase 3 de la fiche action : ERREUR : L'état d'avancement de cette phase doit être l'une des valeurs suivantes : en cours, en projet, réalisé ou reporté / suspendu 
+
+Parsing du fichier ./FichesActionsPourBaseTest\H1.2 - Aide aux travaux.xls en cours ... 
+
+
+Parsing du fichier ./FichesActionsPourBaseTest\H1.3 - Sensibiliser et accompagner les m�nages.xls en cours ... 
+
+
+Parsing du fichier ./FichesActionsPourBaseTest\H1.4 - Elaborer un cahier de pr�conisations.xls en cours ... 
+
+
+Parsing du fichier ./FichesActionsPourBaseTest\H2.1 - Lutter contre la pr�carit� �nerg�tique.xlsx en cours ... 
+
+Récupération de l'avancement de la phase 1 de la fiche action : ERREUR : L'état d'avancement de cette phase doit être l'une des valeurs suivantes : en cours, en projet, réalisé ou reporté / suspendu 
+Récupération de l'avancement de la phase 2 de la fiche action : ERREUR : L'état d'avancement de cette phase doit être l'une des valeurs suivantes : en cours, en projet, réalisé ou reporté / suspendu 
+Récupération de l'avancement de la phase 3 de la fiche action : ERREUR : L'état d'avancement de cette phase doit être l'une des valeurs suivantes : en cours, en projet, réalisé ou reporté / suspendu 
+
+Parsing du fichier ./FichesActionsPourBaseTest\T1.1 - Crit�res �nergie climat dans passations march�s transports publics - Version Finale.xls en cours ... 
+
+
+Parsing du fichier ./FichesActionsPourBaseTest\T1.2 - Optimiser la qualit� de l'offre de services des transports publics - Version Finale.xls en cours ... 
+
+Récupération des coordonnées de la fiche action : ERREUR : Pour être récupéré, les coordonnées doivent être de la forme suivante : adresseEmail,telStandard,telInterne 
+
+Parsing du fichier ./FichesActionsPourBaseTest\T1.3 - R�aliser un PDU - Version Finale.xlsx en cours ... 
+
+
+Parsing du fichier ./FichesActionsPourBaseTest\T2.1 - Sch�ma intercommunal V�lo - Version Finale.xlsx en cours ... 
+
+
+Parsing du fichier ./FichesActionsPourBaseTest\T2.2 - Renforcer l'intermodalit� sur le territoire.xlsx en cours ... 
+
+
+Parsing du fichier ./FichesActionsPourBaseTest\T2.3 - Op�ration pilote PDES - Version Finale.xls en cours ... 
+
+
+Parsing du fichier ./FichesActionsPourBaseTest\T2.4 - Plan de d�placements interentreprises - Version Finale.xls en cours ... 
+
+
+Parsing du fichier ./FichesActionsPourBaseTest\T3.1 - D�velopper une politique transport et tourisme - Version Finale.xls en cours ... 
+
+
+Parsing du fichier ./FichesActionsPourBaseTest\TD1.1 - R�aliser une �tude d'�tat des lieux sur le patrimoine priv� des stations + sensibilisation propri�taires et locataires Version Finale.xls en cours ... 
+
+
+Parsing du fichier ./FichesActionsPourBaseTest\TD2.1 - Initier une r�flexion sur l'�volution des activit�s touristiques Version Finale.xls en cours ... 
+
+Récupération de l'avancement de la phase 1 de la fiche action : ERREUR : L'état d'avancement de cette phase doit être l'une des valeurs suivantes : en cours, en projet, réalisé ou reporté / suspendu 
+Récupération de l'avancement de la phase 2 de la fiche action : ERREUR : L'état d'avancement de cette phase doit être l'une des valeurs suivantes : en cours, en projet, réalisé ou reporté / suspendu 
+
+Parsing du fichier ./FichesActionsPourBaseTest\TD2.2 - Accompagner l'investissement de nouveaux �quipements compl�mentaires au tourisme de neige Version Finale.xls en cours ... 
+
+Récupération de l'avancement de la phase 1 de la fiche action : ERREUR : L'état d'avancement de cette phase doit être l'une des valeurs suivantes : en cours, en projet, réalisé ou reporté / suspendu 
+Récupération de l'avancement de la phase 2 de la fiche action : ERREUR : L'état d'avancement de cette phase doit être l'une des valeurs suivantes : en cours, en projet, réalisé ou reporté / suspendu 
+

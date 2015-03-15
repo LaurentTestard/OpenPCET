@@ -1,0 +1,203 @@
+<div>
+	<div class="modal-body" >
+		
+		<ul class="nav nav-tabs">
+			<li class="active"><a data-toggle="tab" data-target="#ActionInfo">Action</a></li>
+			<li ><a data-toggle="tab" data-target="#ActionPhase">Phase</a></li>
+		</ul>
+		
+		<div class="tab-content" id="actiondet">
+	
+			<div id="ActionInfo" class="tab-pane active" ><br/>
+	
+	
+				<form class="form-horizontal" role="form">
+					<div class="form-group">
+						<label class="col-sm-2 control-label">Nom</label>
+						<div class="col-sm-10">
+							<input ng-model="action.nom_action" type="text" class="form-control" placeholder="Nom">								
+						</div>
+						</div>
+						
+						<div class="form-group">
+						<label class="col-sm-2 control-label">Code</label>
+						<div class="col-sm-4">
+							<input ng-model="action.code_action" type="text" class="form-control" placeholder="Code">
+								
+						</div>
+						</div>
+						
+						<div class="form-group">
+							<label for="objs" class="col-sm-2 control-label">Objectif strat&eacute;gique : </label>
+							<div class="col-sm-10">
+								<select class="form-control" id="theme" ng-model="action.objectifstrategique">
+									<option ng-repeat="obj in objs_strats">{{obj.nom_objectif_strategique}}</option>
+								</select>
+							</div>
+						</div>
+						
+						<div class="form-group">
+							<label class="col-sm-2 control-label">Objectif PCET</label>
+						    <div class="col-sm-6 ">
+						      <div class="checkbox">
+						        <label>
+						           <input type="checkbox" ng-model="action.est_adaptation">Adaptation<br />
+						           <input type="checkbox" ng-model="action.est_attenuation">Atténuation
+						        </label>
+						      </div>
+						    </div>
+						</div>
+						
+						
+						<div class="form-group">
+							<label class="col-sm-2 control-label">Type(s)</label>
+						    <div class="col-sm-6">
+						      <div class="checkbox">
+						        <label>
+									<input type="checkbox" ng-model="action.est_communication">Communication / sensibilisation<br />
+									<input type="checkbox" ng-model="action.est_formation">Formation<br />
+									<input type="checkbox" ng-model="action.est_appui_technique">Appui technique<br />
+									<input type="checkbox" ng-model="action.est_appui_financier">Appui financier<br />
+						        </label>
+						      </div>
+						    </div>
+						</div>
+						
+						<div class="form-group">
+						<label class="col-sm-2 control-label">Contexte</label>
+						<div class="col-sm-10">
+							<textarea  ng-model="action.contexte" class="form-control" rows="3" placeholder="Contexte"></textarea>
+								
+						</div>
+						</div>
+							
+						<div class="form-group">
+						<label class="col-sm-2 control-label">Objectifs quantitatifs</label>
+						<div class="col-sm-4">
+							<input ng-model="action.objectifs_quantitatifs" type="text" class="form-control" placeholder="Objectifs Quantitatifs">
+								
+						</div>
+						</div>
+						
+						<div class="form-group">
+						<label class="col-sm-2 control-label">Gain GES</label>
+						<div class="col-sm-4">
+							<input ng-model="action.gains_ges" type="text" class="form-control" placeholder="Gains GES">
+								
+						</div>
+						</div>
+						
+						<div class="form-group">
+						<label class="col-sm-2 control-label">Gain &eacute;nergie</label>
+						<div class="col-sm-4">
+							<input ng-model="action.gains_energie" type="text" class="form-control" placeholder="Gains Energie">
+						</div>
+						</div>
+						
+						<div class="form-group">
+						<label class="col-sm-2 control-label">Maitrise d'ouvrage</label>
+						<div class="col-sm-4">
+							<input ng-model="action.maitrise_ouvrage" type="text" class="form-control" placeholder="Maitrise d/'ouvrage">
+								
+						</div>
+						</div>
+						
+						<div class="form-group">
+						<label class="col-sm-2 control-label">Budget total</label>
+						<div class="col-sm-4">
+							<input ng-model="action.budget_total" type="text" class="form-control" placeholder="Budget Total">
+								
+						</div>
+						</div>
+						
+						<div class="form-group">
+						<label class="col-sm-2 control-label">Budget consomm&eacute;</label>
+						<div class="col-sm-4">
+							<input ng-model="action.budget_consomme" type="text" class="form-control" placeholder="Budget Consomm&eacute;">
+								
+						</div>
+						</div>
+				</form>
+			</div>
+		
+			<!--
+			<div id="ActionPhase" class="tab-pane" ><br/>
+			<form class="form-horizontal" role="form">
+			
+			<div class="form-group">
+				<label for="phase" class="col-sm-2 control-label">Phase</label>
+				<div class="col-sm-10">
+					<textarea  ng-model="action.nom_phase" class="form-control" rows="3" placeholder="Nouvelle phase"></textarea>
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label for="services" class="col-sm-2 control-label">Services porteurs /moyens humains</label>
+				<div class="col-sm-10">
+					<textarea class="form-control" rows="3" ng-model="action.services_porteurs" placeholder="Services porteurs et moyens humains"></textarea>
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label for="datedebut" class="col-sm-2 control-label">Date de début prévue:</label>
+				<div class="col-sm-2">
+					<input type="date" class="form-control" ng-model="action.date_debut_prevue" id="date-debut-prevue">
+				</div>
+				<label for="datefin" class="col-sm-2 control-label">Date de fin prévue:</label>
+				<div class="col-sm-2">
+					<input type="date" class="form-control" ng-model="action.date_fin_prevue" id="date-fin-prevue">
+				</div>
+				<label for="avancement" class="col-sm-2 control-label">Avancement:</label>
+				<div class="col-sm-2">
+					<select class="form-control" id="avancement" ng-model="action.avancement_phase">
+						<option>Non démarrée</option>
+						<option>En projet</option>
+						<option>En cours</option>
+						<option>Terminée</option>
+						<option>Supendue / reportée</option>
+					</select>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for="datedebutreelle" class="col-sm-2 control-label">Date de début réelle:</label>
+				<div class="col-sm-2">
+					<input type="date" class="form-control" ng-model="action.date_debut_reelle">
+				</div>
+				<label for="datefinreelle" class="col-sm-2 control-label">Date de fin réelle:</label>
+				<div class="col-sm-2">
+					<input type="date" class="form-control" ng-model="action.date_fin_reelle">
+				</div>
+				<label for="ordrePhase" class="col-sm-2 control-label">Ordre d'affichage:</label>
+				<div class="col-sm-2">
+				<input type="number" class="form-control" ng-model="action.ordre_phase" placeholder="Ordre de la phase" id="ordrePhase" min="0" max="10">
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for="descriptif" class="col-sm-2 control-label">Description</label>
+				<div class="col-sm-10">
+					<textarea row="6" ng-model="action.description_phase" id="descriptif" class="form-control" rows="3" placeholder="Description"></textarea>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for="commentaire" class="col-sm-2 control-label">Commentaire</label>
+				<div class="col-sm-10">
+					<textarea row="6" ng-model="action.commentaires_phase" id="commentaire" class="form-control" rows="3" placeholder="Commentaire"></textarea>
+				</div>
+			</div>
+			</form>
+			</div>
+			-->
+			
+			<div id="ActionPhase" class="tab-pane" ><br/>
+			<button ng-click="ajouterPhasesModal()">Ajouter Phase</button>
+			</div>
+		</div>
+		</div>
+		<div class="modal-footer">
+			<button class="btn btn-primary" ng-click="ok()">{{labelBouton}}</button>
+			<button class="btn btn-danger" ng-click="cancel()">Annuler</button>
+		</div>
+</div>

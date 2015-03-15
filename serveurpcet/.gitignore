@@ -1,0 +1,9 @@
+/vendor
+/.settings
+/.buildpath
+/.project
+
+composer.lock
+composer.phar
+app/tmp
+app/document

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://schema.phpunit.de/3.7/phpunit.xsd"
+	stopOnError="false"
+	stopOnIncomplete="false"
+	stopOnFailure="false"
+	stopOnSkipped="true">
+	<testsuites>
+<!-- 		<testsuite name="Test init"> -->
+<!-- 			<directory>/app/test/init.php</directory> -->
+<!-- 		</testsuite> -->
+		<testsuite name="Ma suite de tests">
+			<directory>/app/test/model *Test.php</directory>
+		</testsuite>
+	</testsuites>
+</phpunit>

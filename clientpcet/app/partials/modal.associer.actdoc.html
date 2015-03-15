@@ -1,0 +1,33 @@
+<div class="modal-body">
+	<div class="row">
+		<div class="col-md-6">
+			<ul class="list-group">
+				<li class="list-group-item list-group-item-warning">id : <b>{{id}}</b></li>
+				<li class="list-group-item list-group-item-warning">
+					<div class="input-group">	
+						<input class="form-control" type="text" ></input>
+						<span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
+					</div>
+				</li>
+				<li ng-click="lierDocument(documentnonlie)" ng-repeat="documentnonlie in documentsnonlies" style="cursor: pointer" class="list-group-item">
+					<span class="addtips" data-placement="top" title="Cliquer pour lier cette action">{{documentnonlie.nom_document}}</span> 
+				</li>
+			</ul>
+		</div>
+		<div class="col-md-6">
+			<ul class="list-group">
+				<li class="list-group-item list-group-item-success">Documents associées</li>
+				<li class="list-group-item list-group-item-success	">
+					<div class="input-group">
+					  <input class="form-control" type="text" > </input>
+					  <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
+					</div>
+				</li>
+			    <li ng-click="delierDocument(documentlie)" ng-repeat="documentlie in documentslies" style="cursor: pointer" class="list-group-item">
+			    	<span class="addtips" data-placement="top" title="Cliquer pour d&eacute;lier cette action">{{documentlie.nom_document}}</span>
+			    </li>
+			</ul>
+		</div>
+	</div>
+	<!-- <button class="btn btn-primary" ng-click="ok()">Retour</button> -->
+</div>

@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en" ng-app="myApp">
+<head>
+<meta charset="utf-8">
+<title>PCAET du Grésivaudan</title>
+<link href="img/favicon.ico" rel="shortcut icon" type="image/x-icon">
+<link rel="stylesheet" href="css/ajout-utilisateur.css" />
+<link rel="stylesheet" href="css/phase-modif.css" />
+<link rel="stylesheet" href="css/bootstrap.css" />
+<link rel="stylesheet" href="css/bootstrap-theme.css" />
+<link rel="stylesheet" href="css/navbar-fixed-top.css" />
+<link href="css/xeditable.css" rel="stylesheet">
+<link rel="stylesheet" href="css/indicateurs.css" />
+<link rel="stylesheet" href="css/index.css" />
+
+</head>
+<body>
+	<div class="navbar navbar-inverse navbar-fixed-top" role="navigation" ng-controller="infoConnexion">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand pcet-title"  href='#accueil'> PCAET Grésivaudan</a>
+			</div>
+			<div class="navbar-collapse collapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a><div class="login">{{donneeUtilisateur.nom_utilisateur}} {{donneeUtilisateur.prenom_utilisateur}}</div></a></li>
+					<li><a href="#monCompte">Mon compte</a></li>
+					<li><a href="" ng-click="deconnexion()">Se déconnecter</a></li>
+				</ul>
+			</div>
+		</div>
+	</div> 
+	<div class="container-fluid" ng-controller="menu">
+		
+		<div class="row">
+			<div class="col-sm-3 col-md-2 sidebar">
+				<ul class="nav nav-sidebar">
+					<li ng-class="{active:isActive(onglet)}" ng-repeat="onglet in onglets">
+						<a href="#{{onglet.path}}">{{onglet.display}}</a>
+					</li>
+				</ul>
+			</div>
+
+			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+				<div ng-view></div>
+			</div>
+		</div>
+	</div>
+
+
+	<div id="myModalConnexion" ng-controller="connexion" data-backdrop="static" class="modal  fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
+	  <div class="modal-dialog">
+	    <div class="modal-content panel-group">
+	        <ng-include src="'partials/connexion.html'"></ng-include>
+	    </div>
+	  </div>
+	</div>
+
+	<!-- In production use:
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
+  -->
+
+	<script src="lib/jquery/jquery2.min.js"></script>
+	<script src="lib/bootstrap/bootstrap.js"></script>
+	<script src="lib/angular-file-upload/angular-file-upload-shim.min.js"></script><!-- Mettre angular-file-upload-shim avant angularjs -->
+	
+	<script src="lib/angular/angular.js"></script>
+	<script src="lib/angular/angular-route.js"></script>
+	<script src="lib/angular-ui-bootstrap/ui-bootstrap-tpls.js"></script>
+	<script src="lib/angular-file-upload/angular-file-upload.min.js"></script> 
+	<script src="lib/autofill-event/autofill-event.js"></script>
+	
+	<script src="js/app.js"></script>
+	<script src="js/services.js"></script>
+	<script src="js/controllers/controllers.js"></script>
+	<script src="js/controllers/controllers.connexion.js"></script>
+	<script src="js/controllers/controllers.actions.js"></script>
+	<script src="js/controllers/controllers.accueil.js"></script>
+	<script src="js/controllers/controllers.monCompte.js"></script>
+	<script src="js/controllers/controllers.gestion.js"></script>
+	<script src="js/controllers/controllers.action.js"></script>
+	<script src="js/controllers/controllers.utilisateurs.js"></script>
+	<script src="js/controllers/controllers.notification.js"></script>
+	<script src="js/controllers/controllers.gestiondedoc.js"></script> 
+	<script src="js/filters.js"></script>
+	<script src="js/directives.js"></script> 
+	<script src="js/xeditable.js"></script>
+	<script src="js/controllers/controllers.historique.js"></script>
+
+</body>
+</html>

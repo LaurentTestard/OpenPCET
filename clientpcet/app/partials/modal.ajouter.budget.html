@@ -1,0 +1,83 @@
+<div>
+	<div class="modal-body" >
+	
+			<div id="budget"><br/>
+	
+	
+				<form class="form-horizontal" role="form">
+					<div class="form-group">
+						<label class="col-sm-2 control-label">Ann&eacute;e</label>
+						<div class="col-sm-2">
+							<input ng-model="budget.annee" type="text" class="form-control" placeholder="Ann&eacute;e">								
+						</div>
+						
+						<label class="col-sm-4 control-label"> Ne pas renseigner budget</label>
+						<div class="col-sm-2">
+							<input type="checkbox" ng-model="budget.renseigner">
+						</div>
+						</div>
+						
+						
+							<div ng-show="budget.renseigner==false" class="form-group">
+							<label class="col-sm-2 control-label">Nom partenaire</label>
+							<div class="col-sm-2">
+								<input ng-model="partenaire.nom" type="text" class="form-control" placeholder="0">
+							</div>
+							<label class="col-sm-2 control-label">Budget partenaire</label>
+							<div class="col-sm-2">
+								<input ng-model="partenaire.budget" type="text" class="form-control" placeholder="0">		
+							</div>
+							</div>
+							<span ng-hide="partenaire.nom==''||partenaire.budget==''" class="input-group-btn">
+				      			<button ng-click="ajoutpartenaire(partenaire)" class="btn btn-default" type="button">Ajouter le partenaire</button><br>
+				     		</span>
+				     		
+				     		{{budget.budget_total}}
+							
+						<div ng-show="budget.renseigner==false" class="form-group">
+						<label class="col-sm-3 control-label">Budget Gr&eacute;sivaudan </label>
+						<div class="col-sm-2">
+							<input ng-model="budget.commcomm" type="text" class="form-control" placeholder="0">
+								
+						</div>
+						</div>
+						
+						
+						<div class="col-sm-12">
+							<table class="table">
+					    		<tbody class="col-sm-offset-1 col-sm-5">
+					    			<tr  ng-repeat="partenaire in budget.partenairesfin">
+					    				<td class="col-sm-2">
+					    					<b>Budget {{partenaire.nom}}</b>
+					    				</td>
+					    				<td class="col-sm-2">
+					    					{{partenaire.budget}}
+					    				</td>
+					    			</tr>
+					    		</tbody>
+					    	</table>
+				    	</div><br/>	
+						
+						
+						<div ng-show="budget.renseigner==false" class="form-group">
+						<label class="col-sm-3 control-label">Budget consomm&eacute;</label>
+						<div class="col-sm-2">
+							<input ng-model="budget.budget_consomme" type="text" class="form-control" placeholder="0">
+						</div>
+						</div>
+						
+						<div class="form-group">
+						<label class="col-sm-2 control-label">Commentaire</label>
+						<div class="col-sm-8">
+							<input ng-model="budget.commentaire" type="text" class="form-control" placeholder="Commentaire">
+								
+						</div>
+						</div>
+				</form>
+		</div>
+		</div>
+		<div class="modal-footer">
+			<button class="btn btn-primary" ng-click="ok()">Ajouter</button>
+			<button class="btn btn-danger" ng-click="cancel()">Annuler</button>
+		</div>
+</div>
